@@ -9,8 +9,8 @@ router.put('/:id',verifyAdmin,updateProduct)
 
 router.delete('/:id',verifyAdmin,deleteProduct)
 
-router.get('/find/:id',verifyAdmin,getProduct)
+router.get('/find/:id',getProduct)
 
-router.get('/',verifyAdmin,getAllProducts)
+router.get('/',getAllProducts)
 
 export default router;

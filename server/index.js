@@ -5,6 +5,8 @@ import authRoute from './routes/authRoute.js'
 import userRoute from './routes/userRoute.js'
 import productRoute from './routes/productRoute.js'
 import cartRoute from './routes/cartRoute.js'
+import orderRoute from './routes/orderRoute.js'
+import stripe from './routes/stripe.js'
 import cors from "cors";
 import cookieParser from 'cookie-parser'
 
@@ -26,8 +28,8 @@ app.use('/api/auth',authRoute);
 app.use('/api/user',userRoute);
 app.use("/api/product", productRoute);
 app.use("/api/carts", cartRoute);
-// app.use("/api/orders", orderRoute);
-// app.use("/api/checkout", stripeRoute);
+app.use("/api/orders", orderRoute);
+app.use("/api/checkout", stripe);
 
 
 app.listen(8800,async ()=>{
