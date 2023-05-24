@@ -6,21 +6,17 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import {BrowserRouter,Navigate,Route,Routes} from 'react-router-dom'
 import Success from "./pages/Success";
+import { useSelector } from "react-redux";
 
 const App = () => {
-  const user=true;
+  const user=useSelector(state=>state.user.currentUser);
   const ProtectedRoute =   ({ children }) => {
     if (!user) {
       return <Navigate to="/login" />;
     }
     return children;
   };
-  const LoginRoute = ({children})=>{
-    if(user){
-      return <Navigate to="/"/>
-    }
-    return children;
-  }
+
   return (
     <BrowserRouter>
     <Routes>
@@ -29,8 +25,8 @@ const App = () => {
       <Route path="/product/:id" element={<ProductPage/>}/>
       <Route path="/cart" element={<ProtectedRoute><Cart/></ProtectedRoute>}/>
       <Route path="/success" element={<ProtectedRoute><Success/></ProtectedRoute>}/>
-      <Route path="/register" element={<LoginRoute><Register/></LoginRoute>}/>
-      <Route path="/login" element={<LoginRoute><Login/></LoginRoute>}/>
+      <Route path="/register" element={<Register/>}/>
+      <Route path="/login" element={<Login/>}/>
     </Routes>
     </BrowserRouter>   
   );

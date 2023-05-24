@@ -57,7 +57,7 @@ const ProductPage = () => {
               <div className="filtertitle">Color</div>
               {
                 product.color?.map(c => (
-                  <div className="filtercolor" onClick={() => setColor(c)} key={c} style={{ backgroundColor: `${c}` }} />
+                  <div className="filtercolor" onClick={() => setColor(c)} key={c} style={{ backgroundColor: `${c}`,border: color===c && "2px solid lightblue" }} />
                 ))
               }
             </div>

@@ -41,6 +41,10 @@
     cursor: pointer;
     margin-bottom: 10px;
 }
+.button:disabled{
+    cursor: not-allowed;
+}
+
 a{
     margin: 5px 0px;
     font-size: 14px;

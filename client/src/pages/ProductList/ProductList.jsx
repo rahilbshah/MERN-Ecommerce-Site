@@ -12,7 +12,6 @@ const ProductList = () => {
  const [filter, setFilter] = useState({});
  const [sort, setSort] = useState("newest");
 
-
  const handleFilter = (e)=>{
   setFilter({...filter,[e.target.name]:e.target.value})
  }
@@ -20,7 +19,7 @@ const ProductList = () => {
     <div>
       <Navbar />
       <Announcement />
-      <h1 className="productList-title">{cat}</h1>
+      <h1 className="productList-title">{cat.charAt(0).toUpperCase() + cat.slice(1)}</h1>
       <div className='filtercontainer'>
         <div className='filter'>
           <span className='filtertext'>Filter Products:</span>

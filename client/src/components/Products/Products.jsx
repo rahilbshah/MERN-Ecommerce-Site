@@ -8,7 +8,6 @@ import axios from "axios";
 const Products = ({ cat, filter, sort }) => {
   const [products, setProducts] = useState([]);
   const [filteredProduct, setFilteredProduct] = useState([]);
-  // console.log(filter);
   useEffect(() => {
     const getProducts = async () => {
       const res = await axios.get(

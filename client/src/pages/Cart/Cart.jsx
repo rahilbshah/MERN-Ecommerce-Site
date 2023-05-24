@@ -19,14 +19,13 @@ const Cart = () => {
     const onToken = (token) => {
         setStripeToken(token)
     }
-
     console.log(stripeToken);
     useEffect(()=>{
         const makeRequest = async ()=>{
             try {
                 const res = await axios.post(`http://localhost:8800/api/checkout/payment`,{
                     tokenId:stripeToken.id,
-                    amount:cart.total
+                    amount: 500,
                 })
                 console.log(res.data);
                 navigate('/success',{state:{ stripeData: res.data,products: cart}})
@@ -37,7 +36,6 @@ const Cart = () => {
         }
        stripeToken && makeRequest();
     },[stripeToken,cart,navigate])
-    console.log(cart.total);
     return (
         <div>
             <Navbar />
